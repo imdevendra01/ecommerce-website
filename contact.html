@@ -220,3 +220,28 @@
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function(){
+        $('#form').submit(function(e){
+            var name = $('#name').val().trim();
+             var email = $('#email').val().trim();
+              var msg = $('#msg').val().trim();
+              $(".error").remove();
+              var isValidForm = true;
+              if(name.length<1){
+                $('#name').after('<span class = "error">Name field is required</span>');
+                var isValidForm = false;
+              }
+              if(email.length<1){
+                $('#email').after('<span class = "error">Email field is required</span>');
+                var isValidForm = false;
+              }
+               if(msg.length<1){
+                $('#msg').after('<span class = "error">Message field is required</span>');
+                var isValidForm = false;
+              }
+              return isValidForm;
+        });
+    });
+</script>
